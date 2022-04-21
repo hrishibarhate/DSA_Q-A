@@ -17,17 +17,15 @@ public class DsaApplication {
 	 * S and an array of integers A, both of length N, returns a string denoting the
 	 * final message received by the Oth person.
 	 *
-	 * Examples: 1. Given S = "cdeo" and A = [3, 2, 0, 1), 
-	 * your function should returns "code". 
-	 * 2) Given S="cdeenetpi" , A= [5,2,0,1,6,4,8,3,7] 
-	 * returns = "centipede"
-	 * 3) S = "bytdag", A=[4,3,0,1,2,5] returns "bat". 
-	 * Note that not all letters from S have to be used.
+	 * Examples: 1. Given S = "cdeo" and A = [3, 2, 0, 1), your function should
+	 * returns "code". 2) Given S="cdeenetpi" , A= [5,2,0,1,6,4,8,3,7] returns =
+	 * "centipede" 3) S = "bytdag", A=[4,3,0,1,2,5] returns "bat". Note that not all
+	 * letters from S have to be used.
 	 */
 
 	private static String getMessage(String s, int[] a) {
-		//Example : input S = "cdeo" and A = {3, 2, 0, 1}
-		
+		// Example : input S = "cdeo" and A = {3, 2, 0, 1}
+
 		char[] chars = s.toCharArray();
 
 		// First letter in the array
@@ -39,9 +37,32 @@ public class DsaApplication {
 			finalMessage += chars[destination];
 			destination = a[destination];
 		}
-		
-		//System.out.println(finalMessage);
+
+		// System.out.println(finalMessage);
 		return finalMessage;
+	}
+
+	// Count Occurrences of a Char in a String
+	private static void countCharOccurrences() {
+		// Using for loop
+		String someString = "elephant";
+		char someChar = 'e';
+		int count = 0;
+
+		for (int i = 0; i < someString.length(); i++) {
+			if (someString.charAt(i) == someChar) {
+				count++;
+			}
+		}
+		System.out.println(someString);
+		System.out.println("occurrence of a: " + count);
+
+		// Using Java 8
+		String str = "abracadabra-banana";
+		
+		long count1 = str.chars().filter(ch -> ch == 'a').count();
+		System.out.println(str);
+		System.out.println("occurrence of a: " + count1);
 	}
 
 }
