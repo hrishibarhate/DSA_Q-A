@@ -1,9 +1,17 @@
 package com.dsa;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 public class DsaApplication {
 
 	public static void main(String[] args) {
-		
+		countEachCharOccurrences();
 	}
 
 	/*
@@ -63,6 +71,45 @@ public class DsaApplication {
 		long count1 = str.chars().filter(ch -> ch == 'a').count();
 		System.out.println(str);
 		System.out.println("occurrence of a: " + count1);
+		
+		//using Pattern Matchers
+		char character = 'a';
+		Pattern pattern = Pattern.compile("[^" + character + "]*" + character + "");
+        Matcher matcher = pattern.matcher(str);
+        int finalcount = 0;
+        while (matcher.find()) {
+        	finalcount++;
+        }
+        System.out.println("occurrence of a: " + finalcount);
+		
 	}
+	
+	// Count Occurrences of a Each Char in a String
+		private static void countEachCharOccurrences() {
+			// Using for loop
+			String someString = "elephant";
+			int count = 0;
+			
+			char[] cArray = someString.toCharArray();
+			HashMap<Character, Integer> countOccurences = new HashMap<Character, Integer>();
+			
+			for (int i = 0; i < someString.length(); i++) {
+				if(countOccurences.containsKey(cArray[i]))
+				{
+					countOccurences.put(cArray[i], countOccurences.get(cArray[i]) + 1);
+				}else {
+					countOccurences.put(cArray[i], 1);
+				}
+			}
+			
+			System.out.println("occurrence of string : "+ someString + " : " + countOccurences);
+
+			// Using Java 8
+			String str= "Communication";  
+			Map<String, Long> result = Arrays.stream(str.split(""))
+					.map(String::toLowerCase)
+					.collect(Collectors.groupingBy(s -> s, LinkedHashMap::new, Collectors.counting()));  
+			System.out.println("occurrence of string : "+ str + " : " + result); 
+		}
 
 }
