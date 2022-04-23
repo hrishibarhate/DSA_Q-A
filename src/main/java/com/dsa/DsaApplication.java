@@ -67,49 +67,72 @@ public class DsaApplication {
 
 		// Using Java 8
 		String str = "abracadabra-banana";
-		
+
 		long count1 = str.chars().filter(ch -> ch == 'a').count();
 		System.out.println(str);
 		System.out.println("occurrence of a: " + count1);
-		
-		//using Pattern Matchers
+
+		// using Pattern Matchers
 		char character = 'a';
 		Pattern pattern = Pattern.compile("[^" + character + "]*" + character + "");
-        Matcher matcher = pattern.matcher(str);
-        int finalcount = 0;
-        while (matcher.find()) {
-        	finalcount++;
-        }
-        System.out.println("occurrence of a: " + finalcount);
-		
-	}
-	
-	// Count Occurrences of a Each Char in a String
-		private static void countEachCharOccurrences() {
-			// Using for loop
-			String someString = "elephant";
-			int count = 0;
-			
-			char[] cArray = someString.toCharArray();
-			HashMap<Character, Integer> countOccurences = new HashMap<Character, Integer>();
-			
-			for (int i = 0; i < someString.length(); i++) {
-				if(countOccurences.containsKey(cArray[i]))
-				{
-					countOccurences.put(cArray[i], countOccurences.get(cArray[i]) + 1);
-				}else {
-					countOccurences.put(cArray[i], 1);
-				}
-			}
-			
-			System.out.println("occurrence of string : "+ someString + " : " + countOccurences);
+		Matcher matcher = pattern.matcher(str);
+		int finalcount = 0;
+		while (matcher.find()) {
+			finalcount++;
+		}
+		System.out.println("occurrence of a: " + finalcount);
 
-			// Using Java 8
-			String str= "Communication";  
-			Map<String, Long> result = Arrays.stream(str.split(""))
-					.map(String::toLowerCase)
-					.collect(Collectors.groupingBy(s -> s, LinkedHashMap::new, Collectors.counting()));  
-			System.out.println("occurrence of string : "+ str + " : " + result); 
+	}
+
+	// Count Occurrences of a Each Char in a String
+	private static void countEachCharOccurrences() {
+		// Using for loop
+		String someString = "elephant";
+		int count = 0;
+
+		char[] cArray = someString.toCharArray();
+		HashMap<Character, Integer> countOccurences = new HashMap<Character, Integer>();
+
+		for (int i = 0; i < someString.length(); i++) {
+			if (countOccurences.containsKey(cArray[i])) {
+				countOccurences.put(cArray[i], countOccurences.get(cArray[i]) + 1);
+			} else {
+				countOccurences.put(cArray[i], 1);
+			}
 		}
 
+		System.out.println("occurrence of string : " + someString + " : " + countOccurences);
+
+		// Using Java 8
+		String str = "Communication";
+		Map<String, Long> result = Arrays.stream(str.split("")).map(String::toLowerCase)
+				.collect(Collectors.groupingBy(s -> s, LinkedHashMap::new, Collectors.counting()));
+		System.out.println("occurrence of string : " + str + " : " + result);
+	}
+
+	/*
+	 * Given a character, the task is to check whether the given (first) character
+	 * is in upper case, lower case, or non-alphabetic character Examples:
+	 * 
+	 * 
+	 * Input: ch = 'A' Output: A is an UpperCase character
+	 * 
+	 * Input: ch = 'a' Output: a is an LowerCase character
+	 * 
+	 * Input: ch = '0' Output: 0 is is a Number
+	 * 
+	 * Input: ch = '*' Output: * is Special character
+	 */
+	private static void check() {
+		String str = "*1";
+		char ch = str.charAt(0);
+		if (ch >= 'A' && ch <= 'Z')
+			System.out.println("\n" + ch + " is an UpperCase character");
+		else if (ch >= 'a' && ch <= 'z')
+			System.out.println("\n" + ch + " is an LowerCase character");
+		else if (ch >= 47 && ch <= 57)
+			System.out.println("\n" + ch + " is a Number");
+		else
+			System.out.println("\n" + ch + " is Special character");
+	}
 }
