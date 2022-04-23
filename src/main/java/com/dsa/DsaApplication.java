@@ -123,7 +123,7 @@ public class DsaApplication {
 	 * 
 	 * Input: ch = '*' Output: * is Special character
 	 */
-	private static void checkCharacter() {
+	private static void checkCharacterIsXXX() {
 		String str = "*1";
 		char ch = str.charAt(0);
 		if (ch >= 'A' && ch <= 'Z')
