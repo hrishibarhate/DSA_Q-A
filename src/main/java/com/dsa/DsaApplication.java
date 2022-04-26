@@ -3,6 +3,7 @@ package com.dsa;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -134,5 +135,33 @@ public class DsaApplication {
 			System.out.println("\n" + ch + " is a Number");
 		else
 			System.out.println("\n" + ch + " is Special character");
+	}
+
+	/*
+	 * Given current day as day of the week and an integer K, the task is to find
+	 * the day of the week after K days.
+	 * 
+	 * Example 1: Input: day = “Monday”
+	 * 
+	 * K = 3
+	 * 
+	 * Output: Thursday Example 2: Input: day = “Tuesday”
+	 * 
+	 * K = 101
+	 * 
+	 * Output: Friday 
+	 * 
+	 * Scanner scanner = new Scanner(System.in); 
+	 * String day = scanner.nextLine(); 
+	 * int k = Integer.parseInt(scanner.nextLine());
+	 * scanner.close(); 
+	 * String res = dayOfWeek(day, k); 
+	 * System.out.println(res);
+	 */
+	
+	public static String dayOfWeek(String day, int k) {
+		List<String> days = List.of("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+		int index = days.indexOf(day);
+		return days.get((index + k) % 7);
 	}
 }
