@@ -150,18 +150,48 @@ public class DsaApplication {
 	 * K = 101
 	 * 
 	 * Output: Friday 
-	 * 
-	 * Scanner scanner = new Scanner(System.in); 
-	 * String day = scanner.nextLine(); 
-	 * int k = Integer.parseInt(scanner.nextLine());
-	 * scanner.close(); 
-	 * String res = dayOfWeek(day, k); 
-	 * System.out.println(res);
 	 */
 	
 	public static String dayOfWeek(String day, int k) {
+		/* Scanner scanner = new Scanner(System.in); 
+		 * String day = scanner.nextLine(); 
+		 * int k = Integer.parseInt(scanner.nextLine());
+		 * scanner.close(); 
+		 * String res = dayOfWeek(day, k); 
+		 * System.out.println(res);
+		 */
 		List<String> days = List.of("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 		int index = days.indexOf(day);
 		return days.get((index + k) % 7);
 	}
+
+	/*
+	 * Given a string S having lowercase English letters, returns a string with no
+	 * instances of three identical consecutive letters, obtained from S by deleting
+	 * the minimum possible number of letters.
+	 * 
+	 * Example 1: Input: eedaaad Output: eedaad Explanation: One occurrence of
+	 * letter a is deleted.
+	 * 
+	 * Example 2: Input: xxxtxxx Output: xxtxx Explanation: Note that letter x can
+	 * occur more than three times in the returned string if the occurrences are not
+	 * consecutive.
+	 * 
+	 * Example 3: Input: uuuuxaaaaxum Output: uuxaaxum
+	 */	
+	public static String filterString(String s) {		
+		StringBuilder sb = new StringBuilder();
+		sb.append(s.charAt(0));
+		sb.append(s.charAt(1));
+		for (int i = 2; i < s.length(); ++i) {
+			if (s.charAt(i) != s.charAt(i - 1) || s.charAt(i) != s.charAt(i - 2)) {
+				sb.append(s.charAt(i));
+			}
+		}
+		return sb.toString();
+	}
+
+   
+        
+  
 }
