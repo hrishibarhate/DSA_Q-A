@@ -191,7 +191,25 @@ public class DsaApplication {
 		return sb.toString();
 	}
 
-   
+	/*
+	 * Given a string str, the task is to find the lexicographically smallest string
+	 * that can be formed by removing at most one character from the given string.
+	 * 
+	 * Example 1: Input: abczd Output: abcd 
+	 * Example 2: Input: abcda Output: abca
+	 * Explanation: One can remove d to get abca which is the lexicographically
+	 * smallest string possible.
+	 */
+
+	public static String smallestString(String s) {
+		int i = 0;
+		for (; i < s.length() - 1; i++) {
+			if (s.charAt(i) > s.charAt(i + 1)) {
+				break;
+			}
+		}
+		return s.substring(0, i) + s.substring(i + 1, s.length());
+	}
         
   
 }
