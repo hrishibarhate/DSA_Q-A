@@ -325,5 +325,17 @@ public class DsaApplication {
         return (str1.length() == str2.length()) &&
                ((str1 + str1).indexOf(str2) != -1);
     }
-  
+	
+	//Longest Repeating Subsequence : https://www.geeksforgeeks.org/longest-repeating-subsequence/
+	/*
+	 * Input: str = "abc" Output: 0 There is no repeating subsequence
+	 * 
+	 * Input: str = "aab" Output: 1 The two subsequence are 'a'(first) and
+	 * 'a'(second). Note that 'b' cannot be considered as part of subsequence as it
+	 * would be at same index in both.
+	 * 
+	 * Input: str = "aabb" Output: 2
+	 * 
+	 * Input: str = "axxxy" Output: 2
+	 */
 }
