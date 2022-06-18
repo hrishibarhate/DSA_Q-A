@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class DsaApplication {
 
 	public static void main(String[] args) {
-		
+
 	}
 
 	/*
@@ -87,6 +87,9 @@ public class DsaApplication {
 	}
 
 	// Count Occurrences of a Each Char in a String
+	// String a= "elephant";
+	// Output  elephant : {p=1, a=1, t=1, e=2, h=1, l=1, n=1}
+	// Communication : {c=2, o=2, m=2, u=1, n=2, i=2, a=1, t=1}
 	private static void countEachCharOccurrences() {
 		// Using for loop
 		String someString = "elephant";
@@ -105,6 +108,12 @@ public class DsaApplication {
 
 		System.out.println("occurrence of string : " + someString + " : " + countOccurences);
 
+		for(int i=0; i<someString.length() ;i++) {
+			if(countOccurences.get(cArray[i]).intValue() == 1) {
+				System.out.println("Non -Repeating occurrence of string : " +  cArray[i] + " : " + countOccurences.get(cArray[i]).intValue());
+			}
+		}
+		
 		// Using Java 8
 		String str = "Communication";
 		Map<String, Long> result = Arrays.stream(str.split("")).map(String::toLowerCase)
