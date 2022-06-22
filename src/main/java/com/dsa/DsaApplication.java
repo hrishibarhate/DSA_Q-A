@@ -16,6 +16,18 @@ public class DsaApplication {
 
 	}
 
+	private static void replaceFunctions() {
+		String x = "Company  \"Brillio\" ";		 	
+		
+		String removeAllOccurances = x.replaceAll("\"", "");	        
+		
+		String addRoundBrackets= x.replaceFirst("\"", "{").replaceFirst("\"", "}");
+			        
+		
+		System.out.println(removeAllOccurances);
+		System.out.println(addRoundBrackets);
+	}
+
 	/*
 	 * There are N people, numbered from 0 to N-1, playing a game. The K-th person
 	 * is assigned the letter S[K]. At the beginning the oth person sends a message,
