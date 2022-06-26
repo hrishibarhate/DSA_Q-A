@@ -17,13 +17,12 @@ public class DsaApplication {
 	}
 
 	private static void replaceFunctions() {
-		String x = "Company  \"Brillio\" ";		 	
-		
-		String removeAllOccurances = x.replaceAll("\"", "");	        
-		
-		String addRoundBrackets= x.replaceFirst("\"", "{").replaceFirst("\"", "}");
-			        
-		
+		String x = "Company  \"Brillio\" ";
+
+        String removeAllOccurances = x.replaceAll("\"", "");
+
+        String addRoundBrackets = x.replaceFirst("\"", "{").replaceFirst("\"", "}");
+
 		System.out.println(removeAllOccurances);
 		System.out.println(addRoundBrackets);
 	}
@@ -100,7 +99,7 @@ public class DsaApplication {
 
 	// Count Occurrences of a Each Char in a String
 	// String a= "elephant";
-	// Output  elephant : {p=1, a=1, t=1, e=2, h=1, l=1, n=1}
+	// Output elephant : {p=1, a=1, t=1, e=2, h=1, l=1, n=1}
 	// Communication : {c=2, o=2, m=2, u=1, n=2, i=2, a=1, t=1}
 	private static void countEachCharOccurrences() {
 		// Using for loop
@@ -120,12 +119,13 @@ public class DsaApplication {
 
 		System.out.println("occurrence of string : " + someString + " : " + countOccurences);
 
-		for(int i=0; i<someString.length() ;i++) {
-			if(countOccurences.get(cArray[i]).intValue() == 1) {
-				System.out.println("Non -Repeating occurrence of string : " +  cArray[i] + " : " + countOccurences.get(cArray[i]).intValue());
+		for (int i = 0; i < someString.length(); i++) {
+			if (countOccurences.get(cArray[i]).intValue() == 1) {
+				System.out.println("Non -Repeating occurrence of string : " + cArray[i] + " : "
+						+ countOccurences.get(cArray[i]).intValue());
 			}
 		}
-		
+
 		// Using Java 8
 		String str = "Communication";
 		Map<String, Long> result = Arrays.stream(str.split("")).map(String::toLowerCase)
@@ -171,16 +171,14 @@ public class DsaApplication {
 	 * 
 	 * K = 101
 	 * 
-	 * Output: Friday 
+	 * Output: Friday
 	 */
-	
+
 	public static String dayOfWeek(String day, int k) {
-		/* Scanner scanner = new Scanner(System.in); 
-		 * String day = scanner.nextLine(); 
-		 * int k = Integer.parseInt(scanner.nextLine());
-		 * scanner.close(); 
-		 * String res = dayOfWeek(day, k); 
-		 * System.out.println(res);
+		/*
+		 * Scanner scanner = new Scanner(System.in); String day = scanner.nextLine();
+		 * int k = Integer.parseInt(scanner.nextLine()); scanner.close(); String res =
+		 * dayOfWeek(day, k); System.out.println(res);
 		 */
 		List<String> days = List.of("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
 		int index = days.indexOf(day);
@@ -200,8 +198,8 @@ public class DsaApplication {
 	 * consecutive.
 	 * 
 	 * Example 3: Input: uuuuxaaaaxum Output: uuxaaxum
-	 */	
-	public static String filterString(String s) {		
+	 */
+	public static String filterString(String s) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(s.charAt(0));
 		sb.append(s.charAt(1));
@@ -217,8 +215,7 @@ public class DsaApplication {
 	 * Given a string str, the task is to find the lexicographically smallest string
 	 * that can be formed by removing at most one character from the given string.
 	 * 
-	 * Example 1: Input: abczd Output: abcd 
-	 * Example 2: Input: abcda Output: abca
+	 * Example 1: Input: abczd Output: abcd Example 2: Input: abcda Output: abca
 	 * Explanation: One can remove d to get abca which is the lexicographically
 	 * smallest string possible.
 	 */
@@ -241,59 +238,55 @@ public class DsaApplication {
 	 * ‘z’, as ‘l’, ‘z’, ‘y’ are missing]
 	 */
 	/*
-	 * Returns true if the string is pangram else false 
-	 * String str = "The quick brown fox jumps over the lazy dog";
+	 * Returns true if the string is pangram else false String str =
+	 * "The quick brown fox jumps over the lazy dog";
 	 * 
-	 * if (checkPangram(str) == true) 
-	 * System.out.print(str + " is a pangram."); 
-	 * else
+	 * if (checkPangram(str) == true) System.out.print(str + " is a pangram."); else
 	 * System.out.print(str + " is not a pangram.");
 	 */
-    public static boolean checkPangram(String str)
-    {
-        // Create a hash table to mark the
-        // characters present in the string
-        // By default all the elements of
-        // mark would be false.
-        boolean[] mark = new boolean[26];
- 
-        // For indexing in mark[]
-        int index = 0;
- 
-        // Traverse all characters
-        for (int i = 0; i < str.length(); i++) {
-            // If uppercase character, subtract 'A' to find index.
-            if ('A' <= str.charAt(i) && str.charAt(i) <= 'Z')
-                index = str.charAt(i) - 'A';
- 
-            // If lowercase character, subtract 'a' to find index.
-            else if ('a' <= str.charAt(i) && str.charAt(i) <= 'z')
- 
-                index = str.charAt(i) - 'a';
- 
-            // If this character is other than english
-            // lowercase and uppercase characters.
-            else
-                continue;
-            mark[index] = true;
-        }
- 
-        // Return false if any character is unmarked
-        for (int i = 0; i <= 25; i++)
-            if (mark[i] == false)
-                return (false);
- 
-        // If all characters were present
-        return (true);
+	public static boolean checkPangram(String str) {
+		// Create a hash table to mark the
+		// characters present in the string
+		// By default all the elements of
+		// mark would be false.
+		boolean[] mark = new boolean[26];
+
+		// For indexing in mark[]
+		int index = 0;
+
+		// Traverse all characters
+		for (int i = 0; i < str.length(); i++) {
+			// If uppercase character, subtract 'A' to find index.
+			if ('A' <= str.charAt(i) && str.charAt(i) <= 'Z')
+				index = str.charAt(i) - 'A';
+
+			// If lowercase character, subtract 'a' to find index.
+			else if ('a' <= str.charAt(i) && str.charAt(i) <= 'z')
+
+				index = str.charAt(i) - 'a';
+
+			// If this character is other than english
+			// lowercase and uppercase characters.
+			else
+				continue;
+			mark[index] = true;
+		}
+
+		// Return false if any character is unmarked
+		for (int i = 0; i <= 25; i++)
+			if (mark[i] == false)
+				return (false);
+
+		// If all characters were present
+		return (true);
 	}
 
-    
-	/* missing-characters-make-string-pangram
-	 * Pangram is a sentence containing every letter in the English alphabet. Given
-	 * a string, find all characters that are missing from the string, i.e., the
-	 * characters that can make the string a Pangram. We need to print output in
-	 * alphabetic order. 
-	 * Input : welcome to geeksforgeeks Output : abdhijnpquvxyz
+	/*
+	 * missing-characters-make-string-pangram Pangram is a sentence containing every
+	 * letter in the English alphabet. Given a string, find all characters that are
+	 * missing from the string, i.e., the characters that can make the string a
+	 * Pangram. We need to print output in alphabetic order. Input : welcome to
+	 * geeksforgeeks Output : abdhijnpquvxyz
 	 * 
 	 * Input : The quick brown fox jumps Output : adglvyz
 	 * 
@@ -329,25 +322,24 @@ public class DsaApplication {
 		}
 		return charsList;
 	}
-	
-	/* Check if strings are rotations of each other or not
-	 * eg given s1 = ABCD and s2 = CDAB, return true, given s1 = ABCD, and s2 = ACBD , return false)
-	 * String str1 = "AACD"; String str2 = "ACDA";
+
+	/*
+	 * Check if strings are rotations of each other or not eg given s1 = ABCD and s2
+	 * = CDAB, return true, given s1 = ABCD, and s2 = ACBD , return false) String
+	 * str1 = "AACD"; String str2 = "ACDA";
 	 * 
 	 * if (areRotations(str1, str2))
-	 * System.out.println("Strings are rotations of each other"); 
-	 * else
+	 * System.out.println("Strings are rotations of each other"); else
 	 * System.out.printf("Strings are not rotations of each other");
 	 */
-	static boolean areRotations(String str1, String str2)
-    {
-        // There lengths must be same and str2 must be
-        // a substring of str1 concatenated with str1. 
-        return (str1.length() == str2.length()) &&
-               ((str1 + str1).indexOf(str2) != -1);
-    }
-	
-	//Longest Repeating Subsequence : https://www.geeksforgeeks.org/longest-repeating-subsequence/
+	static boolean areRotations(String str1, String str2) {
+		// There lengths must be same and str2 must be
+		// a substring of str1 concatenated with str1.
+		return (str1.length() == str2.length()) && ((str1 + str1).indexOf(str2) != -1);
+	}
+
+	// Longest Repeating Subsequence :
+	// https://www.geeksforgeeks.org/longest-repeating-subsequence/
 	/*
 	 * Input: str = "abc" Output: 0 There is no repeating subsequence
 	 * 
@@ -379,15 +371,14 @@ public class DsaApplication {
 		}
 		return dp[n][n];
 	}
-	
+
 	// Method to compare two versions.
-    // Returns 1 if v2 is
-    // smaller, -1 if v1 is smaller, 0 if equal
-	//System.out.println(versionCompare("1.0.7","1.0.7")); // output : 0
-	//System.out.println(versionCompare("1.0.3","1.0.7")); // output : -1
-	//System.out.println(versionCompare("1.0.33","1.0.7")); // output : 1
-    static int versionCompare(String v1, String v2)
-	{
+	// Returns 1 if v2 is
+	// smaller, -1 if v1 is smaller, 0 if equal
+	// System.out.println(versionCompare("1.0.7","1.0.7")); // output : 0
+	// System.out.println(versionCompare("1.0.3","1.0.7")); // output : -1
+	// System.out.println(versionCompare("1.0.33","1.0.7")); // output : 1
+	static int versionCompare(String v1, String v2) {
 		// vnum stores each numeric part of version
 		int vnum1 = 0, vnum2 = 0;
 
@@ -420,4 +411,31 @@ public class DsaApplication {
 		}
 		return 0;
 	}
+
+	// Reverse each word’s characters in string
+//    Example
+//    Original string : how to do in java
+//    Reversed string : woh ot od ni avaj 
+	public static void reverseEachWordCharacters() {
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Original string : ");     
+//        String originalStr = scanner.nextLine();
+//        scanner.close();
+		String originalStr = "how to do in java";
+		String words[] = originalStr.split("\\s");
+		String reversedString = "";
+
+		for (int i = 0; i < words.length; i++) {
+			String word = words[i];
+			String reverseWord = "";
+			for (int j = word.length() - 1; j >= 0; j--) {
+				reverseWord = reverseWord + word.charAt(j);
+			}
+			reversedString = reversedString + reverseWord + " ";
+		}
+
+		// Displaying the string after reverse
+		System.out.print("Reversed string : " + reversedString);
+	}
+
 }
