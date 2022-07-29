@@ -17,7 +17,7 @@ public class DsaApplication {
 	}
 
 	private static void replaceFunctions() {
-		String x = "Company  \"Brillio\" ";
+		String x = "Company  \"GOGGLE\" ";
 
 		String removeAllOccurances = x.replaceAll("\"", "");
 
@@ -25,6 +25,14 @@ public class DsaApplication {
 
 		System.out.println(removeAllOccurances);
 		System.out.println(addRoundBrackets);
+	}
+
+	// Using Array find the respective char from string  
+	private static void printCharByPosition() {
+		String x = "Company";
+		int a[] = {0,3,5};
+		for(int i=0; i<a.length;i++)
+		System.out.println("Position : "+ a[i] + " char is: " + x.charAt(a[i]));
 	}
 
 	/*
